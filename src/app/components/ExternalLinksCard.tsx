@@ -62,23 +62,17 @@ const ProviderCard = ({ provider }: ProviderCardProps) => {
 
 const ExternalLinksCard: React.FunctionComponent = () => {
   return (
-    <Card>
+    <Card isLarge isFlat>
       <CardTitle>Get the latest Red Hat Enterprise Linux certified image for cloud deployment</CardTitle>
       <CardBody>
       <p>Launch the latest RHEL certified cloud image through available cloud service provider marketplaces.</p>
-  <Flex>
+  <Flex justifyContent={{ default: 'justifyContentCenter' }}>
     <FlexItem>
       <ProviderCard provider={Provider.aws} />
     </FlexItem>
     <Divider
       orientation={{
         default: 'vertical'
-      }}
-      inset={{
-        default: 'insetMd',
-        md: 'insetNone',
-        lg: 'insetSm',
-        xl: 'insetXs'
       }}
     />
     <FlexItem>
@@ -87,12 +81,6 @@ const ExternalLinksCard: React.FunctionComponent = () => {
     <Divider
       orientation={{
         default: 'vertical'
-      }}
-      inset={{
-        default: 'insetMd',
-        md: 'insetNone',
-        lg: 'insetSm',
-        xl: 'insetXs'
       }}
     />
     <FlexItem>

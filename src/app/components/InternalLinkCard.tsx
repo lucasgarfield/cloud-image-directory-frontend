@@ -14,10 +14,10 @@ const providerInfo = {
 
 const InternalLinksCard: React.FunctionComponent = () => {
   return (
-    <Card>
+    <Card isFlat isFullHeight isLarge>
       <CardTitle>Build your own RHEL cloud image</CardTitle>
-      <CardBody>Body</CardBody>
-      <CardFooter>Footer</CardFooter>
+      <CardBody>With Red Hat's Image Builder, you can create customizable and repeatable operating system images and server images.</CardBody>
+      <CardFooter>Build an image</CardFooter>
     </Card>
     // <Flex
     //   direction={{ default: 'column' }}
