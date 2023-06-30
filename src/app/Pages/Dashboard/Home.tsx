@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PageSectionVariants, PageSection, Title, Flex, FlexItem } from '@patternfly/react-core';
+import { PageSectionVariants, PageSection, Title, Flex, FlexItem, Gallery, GalleryItem } from '@patternfly/react-core';
 import { Helmet } from 'react-helmet';
 import { useDocumentTitle } from '@app/utils/useDocumentTitle';
 import Footer from '@app/components/Footer';
@@ -42,13 +42,13 @@ const Home: React.FunctionComponent<{ title: string }> = ({ title }) => {
         </Flex>
       </PageSection>
       <PageSection variant={PageSectionVariants.light}>
-        <Flex
-          alignContent={{ default: 'alignContentStretch' }}
-          grow={{ default: 'grow' }}
-          display={{ default: 'inlineFlex' }}
-        >
-          <InternalLinksCard />
-          <ExternalLinksCard />
+        <Flex justifyContent={{ default: 'justifyContentCenter' }}>
+          <FlexItem alignSelf={{ default: 'alignSelfStretch' }}>
+            <InternalLinksCard />
+          </FlexItem>
+          <FlexItem>
+            <ExternalLinksCard />
+          </FlexItem>
         </Flex>
       </PageSection>
       <PageSection variant={PageSectionVariants.light}>

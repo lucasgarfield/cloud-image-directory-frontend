@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Flex, FlexItem, Title } from '@patternfly/react-core';
+import { Button, Card, CardBody, CardFooter, CardTitle, Flex, FlexItem, Title } from '@patternfly/react-core';
 
 import redhat_logo from '@app/bgimages/redhat_clear.png';
 
@@ -14,32 +14,37 @@ const providerInfo = {
 
 const InternalLinksCard: React.FunctionComponent = () => {
   return (
-    <Flex
-      direction={{ default: 'column' }}
-      flex={{ default: 'flex_1' }}
-      justifyContent={{ default: 'justifyContentSpaceBetween' }}
-      alignSelf={{ default: 'alignSelfStretch' }}
-      style={{ border: '1px solid #D2D2D2', padding: '2%' }}
-    >
-      <FlexItem>
-        <img
-          src={redhat_logo}
-          style={{
-            height: '2vw',
-            width: '2vw',
-          }}
-        />
-        <br />
-        <Title headingLevel="h1">{providerInfo.title}</Title>
-        <br />
-        <p>{providerInfo.description}</p>
-      </FlexItem>
-      <FlexItem>
-        <Button component="a" href={providerInfo.url} target="_blank" rel="noreferrer" variant="link">
-          {providerInfo.text}
-        </Button>
-      </FlexItem>
-    </Flex>
+    <Card>
+      <CardTitle>Build your own RHEL cloud image</CardTitle>
+      <CardBody>Body</CardBody>
+      <CardFooter>Footer</CardFooter>
+    </Card>
+    // <Flex
+    //   direction={{ default: 'column' }}
+    //   flex={{ default: 'flex_1' }}
+    //   justifyContent={{ default: 'justifyContentSpaceBetween' }}
+    //   alignSelf={{ default: 'alignSelfStretch' }}
+    //   style={{ border: '1px solid #D2D2D2', padding: '2%' }}
+    // >
+    //   <FlexItem>
+    //     <img
+    //       src={redhat_logo}
+    //       style={{
+    //         height: '2vw',
+    //         width: '2vw',
+    //       }}
+    //     />
+    //     <br />
+    //     <Title headingLevel="h1">{providerInfo.title}</Title>
+    //     <br />
+    //     <p>{providerInfo.description}</p>
+    //   </FlexItem>
+    //   <FlexItem>
+    //     <Button component="a" href={providerInfo.url} target="_blank" rel="noreferrer" variant="link">
+    //       {providerInfo.text}
+    //     </Button>
+    //   </FlexItem>
+    // </Flex>
   );
 };
 
