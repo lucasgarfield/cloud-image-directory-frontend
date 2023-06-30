@@ -17,7 +17,11 @@ const InternalLinksCard: React.FunctionComponent = () => {
     <Card isFlat isFullHeight isLarge>
       <CardTitle>Build your own RHEL cloud image</CardTitle>
       <CardBody>With Red Hat's Image Builder, you can create customizable and repeatable operating system images and server images.</CardBody>
-      <CardFooter>Build an image</CardFooter>
+      <CardFooter>
+                <Button component="a" href={'https://example.com'} target="_blank" rel="noreferrer" variant="link">
+                  click here 
+                </Button>
+      </CardFooter>
     </Card>
     // <Flex
     //   direction={{ default: 'column' }}

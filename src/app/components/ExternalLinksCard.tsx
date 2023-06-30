@@ -1,5 +1,5 @@
 import React from 'react';
-import { Title, Bullseye, Flex, FlexItem, Button, Card, CardTitle, CardBody, CardFooter, DividerVariant, Divider, Stack, StackItem } from '@patternfly/react-core';
+import { Title, Bullseye, Flex, FlexItem, Button, Card, CardTitle, CardBody, CardFooter, DividerVariant, Divider, Stack, StackItem, Split, SplitItem } from '@patternfly/react-core';
 
 import redhat_logo from '@app/bgimages/redhat_clear.png';
 import aws_logo from '@app/bgimages/aws_clear.png';
@@ -52,8 +52,8 @@ const ProviderCard = ({ provider }: ProviderCardProps) => {
                 <img style={{ height: 200, width: 200 }} src={loadImage(provider)} />
               </StackItem>
               <StackItem>
-                <Button component="a" href={'https://example.com'} target="_blank" rel="noreferrer" variant="link">
-                  click here 
+                <Button component="a" href={'https://example.com'} target="_blank" rel="noreferrer" variant="link" className="pf-u-text-align-center">
+                click here 
                 </Button>
               </StackItem>
               </Stack>
@@ -66,28 +66,18 @@ const ExternalLinksCard: React.FunctionComponent = () => {
       <CardTitle>Get the latest Red Hat Enterprise Linux certified image for cloud deployment</CardTitle>
       <CardBody>
       <p>Launch the latest RHEL certified cloud image through available cloud service provider marketplaces.</p>
-  <Flex justifyContent={{ default: 'justifyContentCenter' }}>
+      <br/>
+      <Flex justifyContent={{ default: 'justifyContentCenter'}}>
     <FlexItem>
       <ProviderCard provider={Provider.aws} />
     </FlexItem>
-    <Divider
-      orientation={{
-        default: 'vertical'
-      }}
-    />
     <FlexItem>
       <ProviderCard provider={Provider.google} />
     </FlexItem>
-    <Divider
-      orientation={{
-        default: 'vertical'
-      }}
-    />
     <FlexItem>
       <ProviderCard provider={Provider.azure} />
     </FlexItem>
   </Flex>
-
       </CardBody>
     </Card>
     // <Flex
