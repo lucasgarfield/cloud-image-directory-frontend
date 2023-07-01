@@ -1,10 +1,11 @@
 import React from 'react';
-import { Title, Bullseye, Flex, FlexItem, Button, Card, CardTitle, CardBody, CardFooter, DividerVariant, Divider, Stack, StackItem, Split, SplitItem } from '@patternfly/react-core';
+import { Title, Bullseye, Flex, FlexItem, Button, Card, CardTitle, CardBody, CardFooter, DividerVariant, Divider, Stack, StackItem, Flex, FlexItem, Flex, FlexItem } from '@patternfly/react-core';
 
 import redhat_logo from '@app/bgimages/redhat_clear.png';
 import aws_logo from '@app/bgimages/aws_clear.png';
 import azure_logo from '@app/bgimages/azure_clear.png';
 import google_logo from '@app/bgimages/google_clear.png';
+import {ArrowRightIcon} from '@patternfly/react-icons';
 
 const providerInfos = [
   {
@@ -24,14 +25,25 @@ const providerInfos = [
   },
 ];
 
-const loadImage = (name) => {
+const loadImage = (name: Provider) => {
   switch (name) {
-    case 'aws':
+    case Provider.aws:
       return aws_logo;
-    case 'azure':
+    case Provider.azure:
       return azure_logo;
-    case 'google':
+    case Provider.google:
       return google_logo;
+  }
+};
+
+const displayText = (name: Provider) => {
+  switch (name) {
+    case Provider.aws:
+      return 'Launch in AWS';
+    case Provider.azure:
+      return 'Launch in Azure';
+    case Provider.google:
+      return 'Launch in Google Cloud';
   }
 };
 
@@ -49,12 +61,16 @@ const ProviderCard = ({ provider }: ProviderCardProps) => {
   return (
               <Stack>
               <StackItem>
-                <img style={{ height: 200, width: 200 }} src={loadImage(provider)} />
+              <Bullseye>
+                <img style={{ height: 100, width: 100 }} src={loadImage(provider)} />
+              </Bullseye>
               </StackItem>
               <StackItem>
-                <Button component="a" href={'https://example.com'} target="_blank" rel="noreferrer" variant="link" className="pf-u-text-align-center">
-                click here 
-                </Button>
+              <Bullseye>
+              <Button variant="link" isLarge>
+                {displayText(provider)} <ArrowRightIcon />
+              </Button>
+              </Bullseye>
               </StackItem>
               </Stack>
             )
@@ -63,11 +79,24 @@ const ProviderCard = ({ provider }: ProviderCardProps) => {
 const ExternalLinksCard: React.FunctionComponent = () => {
   return (
     <Card isLarge isFlat>
-      <CardTitle>Get the latest Red Hat Enterprise Linux certified image for cloud deployment</CardTitle>
+      <CardTitle>
+      <Stack>
+      <StackItem>
+        <img
+          src={redhat_logo}
+          style={{
+            height: '2vw',
+          }}/>
+      </StackItem>
+      <StackItem>
+        <p>Get the latest Red Hat Enterprise Linux certified image for cloud deployment</p>      
+      </StackItem>
+      </Stack>
+      </CardTitle>
       <CardBody>
       <p>Launch the latest RHEL certified cloud image through available cloud service provider marketplaces.</p>
       <br/>
-      <Flex justifyContent={{ default: 'justifyContentCenter'}}>
+    <Flex justifyContent={{ default: 'justifyContentCenter'}}>
     <FlexItem>
       <ProviderCard provider={Provider.aws} />
     </FlexItem>
@@ -77,46 +106,9 @@ const ExternalLinksCard: React.FunctionComponent = () => {
     <FlexItem>
       <ProviderCard provider={Provider.azure} />
     </FlexItem>
-  </Flex>
+    </Flex>
       </CardBody>
     </Card>
-    // <Flex
-    //   direction={{ default: 'column' }}
-    //   flex={{ default: 'flex_3' }}
-    //   justifyContent={{ default: 'justifyContentSpaceBetween' }}
-    //   style={{ border: '1px solid #D2D2D2', padding: '2%' }}
-    // >
-    //   <FlexItem>
-    //     <img
-    //       src={redhat_logo}
-    //       style={{
-    //         height: '2vw',
-    //         width: '2vw',
-    //       }}
-    //     />
-    //     <br />
-    //     <Title headingLevel="h1">Get the latest Red Hat Enterprise Linux certified image for cloud deployment</Title>
-    //     <br />
-    //     <p>Launch the latest RHEL certified cloud image through available cloud service provider marketplaces.</p>
-    //   </FlexItem>
-    //   <Flex>
-    //     {providerInfos.map(({ name, text, url }, index) => (
-    //       <>
-    //         <FlexItem
-    //           key={`provider_card_${name}`}
-    //           style={{ borderRight: index != providerInfos.length - 1 ? '1px solid #979797' : 'null' }}
-    //         >
-    //           <img style={{ height: 200, width: 200 }} src={loadImage(name)} />
-    //           <Bullseye>
-    //             <Button component="a" href={url} target="_blank" rel="noreferrer" variant="link">
-    //               {text}
-    //             </Button>
-    //           </Bullseye>
-    //         </FlexItem>
-    //       </>
-    //     ))}
-    //   </Flex>
-    // </Flex>
   );
 };
 
